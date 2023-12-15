@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #31055d;
+    }
+
+    .heart-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .heart {
+      height: 150px;
+      width: 150px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-45deg);
+      box-shadow: -10px 10px 90px #ffffff;
+      animation: heartbeat 0.6s linear infinite;
+    }
+
+    .heart:before {
+      content: '';
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      background: #ffffff;
+      top: -50%;
+      border-radius: 150px;
+      rotate(-45deg);
+      box-shadow: -10px 10px 90px #ffffff;
+    }
+    .heart:after {
+      content: '';
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      background: #ffffff;
+      right: -50%;
+      border-radius: 150px;
+      rotate(-45deg);
+      box-shadow: -10px 10px 90px #ffffff;
+    }
+
+    #typewriter {
+      position: absolute;
+      bottom: 100px;
+      left: -35px;
+      transform: translateY(350px);
+      display: none;
+      color: #ffffff;
+      font-size: 24px;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid #ffffff;
+      animation: typewriter 2s steps(50, end), blink-caret 0.5s step-end infinite;
+    }
+
+    @keyframes heartbeat {
+      10% {
+        transform: rotate(-45deg) scale(1.04);
+      }
+      75% {
+        transform: rotate(-45deg) scale(0.8);
+      }
+      90% {
+        transform: rotate(-45deg) scale(1.07);
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 300px;
+      }
+    }
+
+    @keyframes blink-caret {
+      from  {
+        border-color: transparent;
+      }
+      to {
+        border-color: #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="heart-container" id="heart">
+  <div class="heart"></div>
+  <div id="typewriter">Hi! I like you... quite much.</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#heart").click(function () {
+      $("#typewriter").show();
+    });
+  });
+</script>
+
+</body>
+</html>
